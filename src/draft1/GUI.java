@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,6 +12,7 @@ import javax.swing.JPanel;
 public class GUI implements KeyListener {
 	JFrame frame;
 	JPanel panel = new JPanel(new BorderLayout());
+	BufferedImage[][] grid = new BufferedImage[4][4];
 	Main m;
 	
 	public GUI(Main control)
