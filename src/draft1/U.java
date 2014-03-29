@@ -12,21 +12,25 @@ public class U {
 	}
 	
 	// incomplete
-	public ArrayList<State> generateSuccessors(State s)
+	
+	public static ArrayList<State> generateSuccessors(State s)
 	{
 		ArrayList<State> successors = new ArrayList<State>();
+		
+		// goes in order: up, down, left, right
+		
 		return successors;
 	}
 	
-	public int[][] addTile(int[][] b)
+	public static int[][] addRandomTile(int[][] b)
 	{
 		Random r = new Random();
 		boolean added = false;
 		boolean[][] checked = new boolean[4][4];
 		while(!added) {
-			int x = r.nextInt(3), y = r.nextInt(3);
+			int x = r.nextInt(4), y = r.nextInt(4);
 			if(!checked[x][y]) {
-				if(b[x][y]!=0) {
+				if(b[x][y]==0) {
 					b[x][y] = 2;
 					added = true;
 				}
