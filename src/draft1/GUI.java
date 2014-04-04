@@ -37,7 +37,6 @@ public class GUI implements KeyListener {
 		frame = new JFrame("2048");
 		frame.addKeyListener(this);
 		panel.setBackground(new Color(187, 173, 160));
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		for(int i =0; i<grid.length; i++)
 			for(int j = 0; j<grid.length; j++) {
 				grid[i][j] = new JButton();
@@ -48,6 +47,8 @@ public class GUI implements KeyListener {
 		frame.add(panel);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
 
@@ -85,12 +86,21 @@ public class GUI implements KeyListener {
 		case KeyEvent.VK_LEFT:  m.cst = s.get(2); break;
 		case KeyEvent.VK_RIGHT: m.cst = s.get(3); break;
 		}
-		m.cst.board = U.addRandomTile(m.cst.board);
-		System.out.println("score: "+U.getScore(m.cst));
 		updateBoard();
+		
 	}
 	
-	public void keyReleased(KeyEvent e) {}
+	public void keyReleased(KeyEvent e) {
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		System.out.println("score: "+U.getScore(m.cst));
+		m.cst.board = U.addRandomTile(m.cst.board);
+		updateBoard();}
 	public void keyTyped(KeyEvent e) {}
 
 }
